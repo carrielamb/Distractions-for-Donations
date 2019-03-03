@@ -1,0 +1,8 @@
+html
+    head
+        title="HELLO ETHAN"
+    body
+       ul
+            each value in itemsFromeBay
+                li=value.title[0]
+                img(src=value.galleryURL[0])
