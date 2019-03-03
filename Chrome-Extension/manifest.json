@@ -1,0 +1,12 @@
+{
+  "name": "Distractions to Donations",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Extension to compliment ebay API use",
+  "background": "background.html",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "<all_urls>","storage"]
+}

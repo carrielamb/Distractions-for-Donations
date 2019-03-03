@@ -5,6 +5,9 @@ html
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         style.
+            #EBAYBTN {
+                tex-align:center;
+            }
             #buttonTitle {
                 text-align:center;
             }
@@ -12,16 +15,19 @@ html
                 text-align:center;
             }
     script.
-        var openEbay = function() {
-            window.location.href("127.0.0.1:3000/users");
+        var openEbay = function(id) {
+            window.location.href("www.ebay.com/itm/" + id);
         }
 
     body
        ul
+            <form action="https://www.charity.ebay.com/" id="EBAYBTN">
+                <input type="submit" class="btn btn-outline-primary btn-lg" value="Go to eBay Charities" />
+            </form>
             each value in itemsFromeBay
                 div(id = "Photos")
                     if (value.galleryURL)
                         img(src=value.galleryURL[0])
                 div(id="buttonTitle")
-                    button(class="btn btn-outline-primary btn-lg" type="button" onclick="openEbay("+ value.itemID +")")=value.title[0]
-                    www.ebay.com/tm/ITEMNUM
+                    form(action=value.viewItemURL[0])
+                        button(class="btn btn-outline-primary btn-lg" type="submit")=value.title[0]
