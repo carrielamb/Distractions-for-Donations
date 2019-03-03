@@ -3,18 +3,24 @@ var XMLHttpRequest= require("xmlhttprequest").XMLHttpRequest
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-	
-        var data = "<findItemsAdvancedRequest xmlns=\"http://www.ebay.com/marketplace/search/v1/services\">  <itemFilter>    <name>CharityOnly</name>    <value>true</value>  </itemFilter>  <keywords>iphone</keywords>  <paginationInput>    <entriesPerPage>3</entriesPerPage>  </paginationInput>  <outputSelector>SellerInfo</outputSelector></findItemsAdvancedRequest>"
-        var xmlhttp = new XMLHttpRequest();
+router.post('/', function(req, res, next) {
+	console.log(req.body.userinput + "   lALALA");
+    var data = "<findItemsAdvancedRequest xmlns=\"http://www.ebay.com/marketplace/search/v1/services\">  " +
+	    "<itemFilter>    <name>CharityOnly</name>    <value>true</value>  </itemFilter>  " +
+	    "<keywords>" + req.body.userinput + "</keywords>  " +
+	    "<paginationInput>    <entriesPerPage>5</entriesPerPage>  </paginationInput>  " +
+        "<outputSelector>SellerInfo</outputSelector> </findItemsAdvancedRequest>"
+
+    var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4) {
                 if (xmlhttp.status !== 200) {
-	                res.send("The eBay API call failed");
+                    res.send("The eBay API call failed");
+                    console.log(xmlhttp)
                 } else {
                     console.log("The eBay API request succeeded.")
                     var resultObj = JSON.parse(xmlhttp.responseText);
-                    console.log(resultObj.findItemsAdvancedResponse.ack);
+                    console.log(resultObj.findItemsAdvancedResponse[0].searchResult[0].item);
                     res.render('Items', { itemsFromeBay: resultObj.findItemsAdvancedResponse[0].searchResult[0].item});
                 }
             }

@@ -1,5 +1,39 @@
 html
     head
-        title="HELLO ETHAN"
+        title="Distractions For Donations"
+        link(rel='stylesheet', href="/stylesheets/style.css")
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        style.
+            #userinteract {
+                text-align:center;
+
+            }
+            #textbox {
+                display:inline-block;
+                margin:20px;
+
+            }
+            #button1 {
+                display:inline-block;
+                margin:20px;
+            }
+            .large-font {  
+                font-size: 3em;
+            }
+
+    script.
+        var openEbay = function() {
+            window.location.href("127.0.0.1:3000/users");
+        }
+
     body
-        p=passedFromController
+    p(class="large-font")= passedFromController
+    form(id="userInteract", action="/users", method="POST")
+        div(id="button1")
+            button(class="btn btn-outline-primary btn-lg" type="submit" onclick="openEbay()") I want to donate to
+        div(id="textbox")
+            <input name="userinput" type="text" class="form-control" placeholder="Enter a charity..." aria-label="Enter a charity..." aria-describedby="basic-addon">
+
+
+

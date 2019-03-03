@@ -1,8 +1,27 @@
 html
     head
-        title="HELLO ETHAN"
+        title="Donation Items"
+        link(rel='stylesheet', href="/stylesheets/style.css")
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        style.
+            #buttonTitle {
+                text-align:center;
+            }
+            #Photos {
+                text-align:center;
+            }
+    script.
+        var openEbay = function() {
+            window.location.href("127.0.0.1:3000/users");
+        }
+
     body
        ul
             each value in itemsFromeBay
-                li=value.title[0]
-                img(src=value.galleryURL[0])
+                div(id = "Photos")
+                    if (value.galleryURL)
+                        img(src=value.galleryURL[0])
+                div(id="buttonTitle")
+                    button(class="btn btn-outline-primary btn-lg" type="button" onclick="openEbay("+ value.itemID +")")=value.title[0]
+                    www.ebay.com/tm/ITEMNUM
